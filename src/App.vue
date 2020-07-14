@@ -24,10 +24,9 @@ export default {
 </script>
 
 <style lang="scss">
-// @import "./assets/styles/general.css";
+
 
 #app {
-  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -48,6 +47,6 @@ li {
 }
 
 a {
-  color: #42b983;
+  text-decoration: none;
 }
 </style>

@@ -73,4 +73,8 @@ export default class Timer {
                 minutes.toString().padStart(2, "0") + ":" +
                 seconds.toString().padStart(2, "0"))
     }
+
+    isStopped() {
+        return this._stopped;
+    }
 }

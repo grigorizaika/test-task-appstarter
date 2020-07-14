@@ -1,7 +1,7 @@
 <template>
 <div class="navigation-wrapper">
     <a href="" class="navigation-logo">
-        <img src="" alt="A logo">
+        AppStarter
     </a>
     <div class="navigation-items">
         <a class="navigation-item">Features</a>
@@ -23,8 +23,8 @@ export default {
 
 <style>
 .navigation-wrapper {
-    width: 80%;
-    height: 100px;
+    width: 83%;
+    height: 40px;
     position: absolute;
     top: 10px;
     left: 50%;
@@ -37,18 +37,30 @@ export default {
 }
 
 .navigation-logo {
-    padding: 8px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 20px;
+    line-height: 27px;
+    color: #fff;
 }
 
 .items {
 }
 
 .navigation-item {
-    padding: 8px;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
     color: #fff;
+    margin: 0 15px 0 15px;
 }
 
 .navigation-button {
-    text-transform: capitalize;
+    text-transform: uppercase;
+    padding: 10px 20px 10px 20px;
+    margin: 0px 15px 0px 0;
+    height: 40px;
+    font-size: 14px;
+    line-height: 19px;
 }
 </style>
