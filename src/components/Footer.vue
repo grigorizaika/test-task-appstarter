@@ -29,8 +29,9 @@ export default {
 
 <style lang="scss">
 .footer {
-    display: grid;
-    grid-template-columns: [footer-start] 1fr [copyright] 1fr [contact] 1fr [footer-end];
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
     grid-gap: 8px;
     padding: 32px 135px 32px 135px;
     background-color: #fff;
@@ -95,6 +96,23 @@ export default {
                 border-radius: 0px 8px 8px 0px;
                 border-right: 1px solid #E7E8EA;
             }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        display: flex;
+        flex-flow: column nowrap;
+
+        .company {
+            text-align: center;
+        }
+        .contact {
+            text-align: center;
+        }
+        .social-buttons {
+            margin: auto;
         }
     }
 }

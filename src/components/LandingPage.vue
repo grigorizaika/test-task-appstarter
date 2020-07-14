@@ -85,13 +85,12 @@ export default {
     flex-flow: row nowrap;
 
     .left {
-        
         width: 50%;
-        height: 100%;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: flex-start;
+        margin-bottom: 40px;
 
         .appstarter-logo {
             position: relative;
@@ -119,6 +118,9 @@ export default {
         }
 
         .buttons {
+            display: flex;
+            flex-flow: row;
+
             margin: 20px 0 20px 0;
 
             button {
@@ -155,8 +157,8 @@ export default {
             .tablet-screen {
                 position: absolute;
                 top: 10%;
-                left: 2.5%;
-                width: 95%;
+                left: 4%;
+                width: 92%;
                 height: 80%;
                 background: #0080ff;
                 box-shadow: inset 0px -2px 6px rgba(40, 43, 49, 0.06);
@@ -165,11 +167,6 @@ export default {
                 border-radius: 4px;
             }
 
-            // .promo-image {
-            //     width: 100%;
-            //     height: 100%;
-            //     object-fit: cover;
-            // }
         }
 
     }
@@ -204,7 +201,65 @@ export default {
     }
 }
 
-.timer-section {
+@media screen and (max-width: 1200px) {
+  .top-section {
+      padding: 140px 5% 140px 5%;
 
+      .motto {
+        font-size: 28px !important;
+        line-height: 40px !important;
+      }
+
+      .tablet-frame {
+            width: 400px !important;
+            height: 604px !important;
+      }
+
+      .buttons {
+          button {
+            font-size: 14px;
+            line-height: 20px;
+          }
+
+      }
+  }
 }
+
+
+@media screen and (max-width: 768px) {
+    .top-section {
+        height: calc(1240px - 140px);
+        flex-flow: column nowrap;
+
+        .left {
+            width: 100%;
+            align-items: center;
+            
+            .motto {
+                text-align: center;
+            }
+
+            .buttons {
+                flex-flow: column nowrap !important;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                button {
+                    margin: 8px !important;
+                }
+            }
+        }
+        
+        .right {
+            width: 100%;
+            .tablet-frame {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+    }
+}
+
 </style>

@@ -116,6 +116,14 @@ export default {
 </script>
 
 <style lang="scss">
+$timers-margin-large: 20%;
+$timers-margin-laptop: 10%;
+$new-timer-input-width: 65%;
+$new-timer-button-width: 30%;
+$time-wrapper-width-large: 56%;
+$time-wrapper-width-laptop: 70%;
+$time-wrapper-width-tablet: 86%;
+
 .timer-wrapper {
     width: 56%;
     min-height: 50vh;
@@ -130,7 +138,7 @@ export default {
 }
 
 .timers {
-  margin: 0 140px 0 140px;
+  margin: 0 $timers-margin-large 0 $timers-margin-large;
   text-align: left;
   border-spacing: 0px 40px;
 }
@@ -139,7 +147,7 @@ export default {
   border-bottom: 1px solid #E7E8EA;
 
   .inputs {
-    margin: 0px 140px 0px 140px;
+    margin: 0px $timers-margin-large 0px $timers-margin-large;
     display: flex;
     flex-flow: row;
      flex-flow: row;
@@ -150,12 +158,15 @@ export default {
 }
 
 .timer-name-field {
-  width: 305px;
+  width: $new-timer-input-width;
   margin-left: 0;
 }
 
 .timer-add-button {
-  width: 165px;
+  width: $new-timer-button-width;
+  padding: 4px;
+  font-size: 17px;
+  line-height: 24px;
 }
 
 .name-cell {
@@ -210,6 +221,30 @@ export default {
 
 .delete-icon:hover {
   cursor: pointer;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .timer-wrapper {
+    width: $time-wrapper-width-laptop;
+  }
+
+  .timers {
+    margin: 0 $timers-margin-laptop 0 $timers-margin-laptop; 
+  }
+
+  .new-timer-form {
+    .inputs {
+      margin: 0px $timers-margin-laptop 0px $timers-margin-laptop;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .timer-wrapper {
+    width: $time-wrapper-width-tablet;
+  }
+
 }
 
 </style>
