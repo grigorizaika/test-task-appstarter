@@ -27,7 +27,6 @@
         <div class="right">
             <div class="tablet-frame">
                 <div class="tablet-screen">
-                    <!-- <img class="promo-image" src="../assets/images/tablet-bg.png"/> -->
                 </div>
             </div>
         </div>
@@ -38,7 +37,7 @@
             <h1><b>Why</b> do we use it?</h1>
             <p>
                 This sounded nonsense to Alice, so she said nothing,
-                but set off at once toward <br/> the Red Queen. To her surprise,
+                but set off at once toward the Red Queen. To her surprise,
                 she lost sight of her in a moment.
             </p>
         </div>
@@ -190,7 +189,7 @@ export default {
 
     p {
         margin: auto;
-        max-width: 60%;
+        max-width: 40%;
         text-align: center;
         font-style: normal;
         font-weight: normal;
@@ -228,7 +227,7 @@ export default {
 
 @media screen and (max-width: 768px) {
     .top-section {
-        height: calc(1240px - 140px);
+        height: calc(1140px - 140px);
         flex-flow: column nowrap;
 
         .left {
@@ -237,6 +236,7 @@ export default {
             
             .motto {
                 text-align: center;
+                
             }
 
             .buttons {
@@ -246,7 +246,10 @@ export default {
                 width: 100%;
 
                 button {
-                    margin: 8px !important;
+                    margin: auto auto 20px auto !important;
+                    font-size: 17px !important;
+                    line-height: 23px !important;
+                    width: 40%;
                 }
             }
         }
@@ -259,6 +262,55 @@ export default {
             }
         }
 
+    }
+
+    .gap {
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+        .top-section {
+        height: calc(1040px - 140px);
+        flex-flow: column nowrap;
+
+        .left {
+            width: 100%;
+            align-items: center;
+            
+            .motto {
+                text-align: center;
+                
+            }
+
+            .buttons {
+                flex-flow: column nowrap !important;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+
+                button {
+                    margin: auto auto 20px auto !important;
+                    font-size: 14px !important;
+                    line-height: 17px !important;
+                    width: 60%;
+                }
+            }
+        }
+        
+        .right {
+            .tablet-frame {
+                width: 300px !important;
+                height: 453px !important;
+                border-radius: 40px;
+            }
+        }
+    }
+
+    .text-box {
+        p {
+            max-width: 80%;
+        }
     }
 }
 

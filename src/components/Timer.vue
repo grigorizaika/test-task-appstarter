@@ -123,6 +123,7 @@ $new-timer-button-width: 30%;
 $time-wrapper-width-large: 56%;
 $time-wrapper-width-laptop: 70%;
 $time-wrapper-width-tablet: 86%;
+$time-wrapper-width-small: 94%;
 
 .timer-wrapper {
     width: 56%;
@@ -175,6 +176,8 @@ $time-wrapper-width-tablet: 86%;
   font-size: 20px;
   line-height: 30px;
   color: #5586F2;
+  max-height: 60px;
+
 }
 
 .time-display-input {
@@ -245,6 +248,45 @@ $time-wrapper-width-tablet: 86%;
     width: $time-wrapper-width-tablet;
   }
 
+}
+
+@media screen and (max-width: 480px) {
+    .timer-wrapper {
+      width: $time-wrapper-width-small;
+
+      .inputs {
+        
+        input {
+                    font-size: 14px;
+          line-height: 17px;
+        }
+        .timer-add-button {
+          width: $new-timer-button-width;
+          padding: 4px;
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+
+      .timers {
+        .name-cell {
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+        .time-display-input {
+          width: 80px;
+          font-size: 12px;
+          line-height: 15px;
+        }
+
+        .delete-icon, .timer-run-icon {
+          padding: 20%;
+        }
+      }
+    }
+
+    
 }
 
 </style>

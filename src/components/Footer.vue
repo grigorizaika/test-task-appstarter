@@ -72,6 +72,9 @@ export default {
         .social-buttons {
             margin-left: auto;
             text-align: right;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
 
             .button-social {
                 position: relative;
@@ -104,16 +107,22 @@ export default {
     .footer {
         display: flex;
         flex-flow: column nowrap;
+        padding: 32px 10% 32px 10%;
 
         .company {
             text-align: center;
+            padding: 16px;
         }
         .contact {
             text-align: center;
+            padding: 16px;
+            .social-buttons {
+                justify-content: center;
+                margin: auto;
+                padding: 16px;
+            }
         }
-        .social-buttons {
-            margin: auto;
-        }
+
     }
 }
 </style>
