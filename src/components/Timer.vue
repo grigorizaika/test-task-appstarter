@@ -34,12 +34,12 @@
               v-if="timer.isStopped()" 
               class="timer-run-icon play-icon" 
               src="../assets/icons/play.png" 
-              @click="timer.startTimer()"/>
+              @click="startTimer(timer)"/>
             <img 
               v-else 
               class="timer-run-icon pause-icon" 
               src="../assets/icons/pause.png" 
-              @click="timer.stopTimer()"/>
+              @click="stopTimer(timer)"/>
           </td>
           <td class="icon-cell">
             <img 
@@ -67,21 +67,6 @@ export default {
     },
 
     methods: {
-      createNewTimer() {
-        this.timers.push(new Timer(this.newTimerName));
-        this.newTimerName = '';
-      },
-
-      createrTimerFromJSON(timerJSON) {
-        return Timer.createFromJSON(timerJSON);
-      },
-
-      deleteTimer(timer) {
-        let idx = this.timers.indexOf(timer);
-        this.timers.splice(idx, 1);
-        timer = null;
-      },
-
       putTimersToStorage() {
         localStorage.setItem(
           "timers", 
@@ -98,15 +83,52 @@ export default {
           timer => Timer.createFromJSON(timer)
         );
         this.timers.forEach(timer => timer.runTimer())
-      }
+      },
+
+      createNewTimer() {
+        this.timers.push(new Timer(this.newTimerName));
+        this.newTimerName = '';
+        this.putTimersToStorage();
+      },
+
+      startTimer(timer) {
+        timer.startTimer();
+        this.putTimersToStorage();
+      },
+
+      stopTimer(timer) {
+        timer.stopTimer();
+        this.putTimersToStorage();
+      },
+
+      createrTimerFromJSON(timerJSON) {
+        return Timer.createFromJSON(timerJSON);
+      },
+
+      deleteTimer(timer) {
+        let idx = this.timers.indexOf(timer);
+        this.timers.splice(idx, 1);
+        timer = null;
+        this.putTimersToStorage();
+      },
     },
 
     created() {
       let context = this;
-      window.addEventListener(
-        "beforeunload", function() {
-          context.putTimersToStorage().bind(context);
+      
+      this.$nextTick(function() {
+        window.addEventListener(
+          "beforeunload", function() {
+            context.putTimersToStorage().bind(context);
         });
+      
+        window.addEventListener(
+          "storage", function () {
+            context.loadTimersFromStorage().bind(context);
+        }, false);
+
+      });
+
     },
 
     mounted() {
