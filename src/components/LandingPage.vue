@@ -300,14 +300,20 @@ export default {
         
         .right {
             .tablet-frame {
-                width: 300px !important;
-                height: 453px !important;
-                border-radius: 40px;
+                // width: 300px !important;
+                // height: 453px !important;
+                width: 80vw !important;
+                height: 120vw !important;
+                border-radius: 10vw;
             }
         }
     }
 
     .text-box {
+        h1 {
+            font-size: 28px;
+            line-height: 35px;
+        }
         p {
             max-width: 80%;
         }

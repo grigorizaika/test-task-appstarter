@@ -269,6 +269,8 @@ $time-wrapper-width-small: 94%;
       }
 
       .timers {
+        margin: 0 2% 0 2%;
+        
         .name-cell {
           font-size: 14px;
           line-height: 17px;
