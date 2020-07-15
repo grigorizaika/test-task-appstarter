@@ -1,11 +1,24 @@
 var path = require('path')
 var webpack = require('webpack')
 
+const CopyPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 module.exports = {
+  optimization: {
+    minimizer: [new UglifyJsPlugin()],
+  },
+  plugins: [
+    new CopyPlugin(
+      [
+        { from: './index.html', to: '.' },
+      ],
+    ),
+  ],
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '',
     filename: 'build.js'
   },
   module: {
@@ -87,7 +100,7 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -99,12 +112,12 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    //   compress: {
+    //     warnings: false
+    //   }
+    // }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })
